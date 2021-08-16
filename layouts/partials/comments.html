@@ -31,6 +31,9 @@
           <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
     </div>
-
+  {{ else if (or (not (isset .Site.Params.Comments "engine")) (eq .Site.Params.Comments.Engine "gitalk")) }}
+    <div class="blog-post-comments">
+      {{ partial "gitalk.html" .}}
+    </div>
   {{ end }}
 {{ end }}
